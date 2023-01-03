@@ -4,6 +4,21 @@ const format = document.querySelector('#format');
 const title = document.querySelector('#title');
 const form = document.querySelector('#download_form');
 
+const loader = document.getElementById('load');
+const container = document.querySelector('.container');
+
+// Functions for the loading circle
+function showLoadingSpinner() {
+	container.style.display = 'none';
+	loader.classList.add('loader');
+}
+  
+function removeLoadingSpinner() {
+	container.style.display = 'block';
+	loader.classList.remove('loader');
+
+} 
+
 // Listen for a click on the download button
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -16,6 +31,7 @@ function downloadVideo() {
         return;
     }
     // Download the video
+    showLoadingSpinner();
     fetch(`/download?url=${url.value}&format=${format.value}`)
         .then(response => response.blob())
         .then(file => {
@@ -28,7 +44,6 @@ function downloadVideo() {
         a.download = `${title.value}.${format.value}`;
 
         // Add the element to the DOM
-        // a.style.display = 'none';
         document.body.appendChild(a);
 
         // Click the anchor element to trigger the download
@@ -41,5 +56,6 @@ function downloadVideo() {
         title.value = '';
         format.value = '';
     });
+    removeLoadingSpinner();
 }
 

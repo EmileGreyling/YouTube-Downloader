@@ -3,9 +3,11 @@ from pytube import YouTube
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
   return render_template('index.html')
+
 
 @app.route('/download')
 def download():
@@ -25,6 +27,10 @@ def download():
   # Send the file to the browser
   return send_file(file_path, as_attachment=True)
 
+
 @app.route('/error')
 def error():
     return render_template('error.html', message='Please fill in all fields!')
+
+if __name__ == '__main__':
+    app.run()
