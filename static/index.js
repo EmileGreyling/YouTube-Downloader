@@ -16,7 +16,6 @@ function showLoadingSpinner() {
 function removeLoadingSpinner() {
 	container.style.display = 'block';
 	loader.classList.remove('loader');
-
 } 
 
 // Listen for a click on the download button
