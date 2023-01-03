@@ -25,14 +25,14 @@ form.addEventListener('submit', (e) => {
     downloadVideo();
 });
 
-function downloadVideo() {
+async function downloadVideo() {
     if (url.value == '' || format.value == '' || title.value == '') {
         location.href = '/error';
         return;
     }
     // Download the video
     showLoadingSpinner();
-    fetch(`/download?url=${url.value}&format=${format.value}`)
+    await fetch(`/download?url=${url.value}&format=${format.value}`)
         .then(response => response.blob())
         .then(file => {
         // Create a temporary anchor element
