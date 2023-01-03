@@ -6,9 +6,9 @@
             <h1><i class="fa-brands fa-youtube"></i> YouTube Downloader</h1>
         </header>
         <div class="msg" hidden></div>
-        <form action="/download" method="POST" id="download_form">
-            <input autocomplete="off" type="text" placeholder="Paste the video id here"  name="video_id" id="url" minlength="3">
-            
+        <form id="download_form">
+            <input autocomplete="off" type="text" placeholder="Paste the url here"  name="url" id="url">
+            <input autocomplete="off" type="text" placeholder="Title" name="title" id="title">
             <!-- Format of the video selector -->
             <select name="format" id="format">
                 <option value="" disabled selected>Select Format</option>
@@ -35,4 +35,5 @@
             document.getElementById('download_form').reset();
         </script>
     {% endif %}
+    <script src="../static/index.js"></script>
 {% endblock %}
