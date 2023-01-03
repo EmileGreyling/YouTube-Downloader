@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(-120deg, #D62121, #C72C2C, #3a1111);
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 500px;
+    background-color: #fff;
+    border: 1px solid #b3b2b2;
+    border-radius: 7px;
+    padding: 20px 25px 20px 25px;
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    text-align: center;
+}
+header i {
+    color: red;
+}
+
+header h1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+form {
+    margin: 20px 0 27px 0;
+}
+
+form input {
+    width: 100%;
+    height: 60px;
+    font-size: 19px;
+    padding: 0 17px;
+    outline: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #b3b2b2;
+}
+
+/* Download Button */
+form button {
+    opacity: 0.7;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    background-color: #c23636;
+    pointer-events: none;
+}
+
+form #url:valid ~ button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+form select {
+    width: 100%;
+    height: 60px;
+    font-size: 19px;
+    padding: 0 17px;
+    outline: none;
+    border-radius: 5px;
+    background: white;
+    border: 1px solid #b3b2b2;
+}
+
+
+.loader {
+    margin:auto;
+    border: 16px solid #f4f4f4; 
+    border-top: 16px solid #993636;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.msg {
+    text-align: center;
+    background-color: #c23636;
+    color: white;
+    width: 100%;
+    padding: 5px;
+}
+
+/* Keyframes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

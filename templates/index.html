@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <header>
+            <h1><i class="fa-brands fa-youtube"></i> YouTube Downloader</h1>
+        </header>
+        <div class="msg" hidden></div>
+        <form action="/download" method="POST" id="download_form">
+            <input autocomplete="off" type="text" placeholder="Paste the video id here"  name="video_id" id="url" minlength="3">
+            
+            <!-- Format of the video selector -->
+            <select name="format" id="format">
+                <option value="" disabled selected>Select Format</option>
+                <option value="mp4">Video</option>
+                <option value="mp3">Audio</option>
+            </select>
+            <button type="submit" id="download">Download</button>
+        </form>
+    </div>
+    <div id="loader"></div>
+
+    <script src="https://kit.fontawesome.com/b53796a841.js" crossorigin="anonymous"></script>
+    {% if form_submitted %}
+        <script>
+            // Display the File Location
+            const msg = document.querySelector('.msg');
+            msg.innerHTML = "{{ message }}";
+            msg.style.display = 'block';
+            setInterval(() => {
+                msg.style.display = 'none';
+            }, 8000);
+
+            // Reset the form
+            document.getElementById('download_form').reset();
+        </script>
+    {% endif %}
+{% endblock %}
