@@ -19,12 +19,13 @@ def download():
   if format == 'mp4':
     # Download the video
     video = yt.streams.get_highest_resolution()
-    file_path = video.download('/YouTube Downloads')
+    file_path = video.download('./YouTube Downloads')
   elif format == 'mp3':
     mp3_stream = yt.streams.get_audio_only()
-    file_path = mp3_stream.download('/YouTube Downloads')
+    file_path = mp3_stream.download('./YouTube Downloads')
 
   # Send the file to the browser
+  print("FILE PATH", file_path)
   return send_file(file_path, as_attachment=True)
 
 
